@@ -1,5 +1,5 @@
 prepare for your devops interviews in style
-<br>
+<br><br>
 open issues:<br>
 -> after each question we need to show the corresponding answer<br>
 -> timer needs to count up, not down<br>
