@@ -1,113 +1,122 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<title>iPG</title>
-<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1" />
-<link rel="stylesheet" type="text/css" href="style.css" />
+  <head>
+    <title>iPG</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
 
-<script type="text/javascript" src="functions.js"></script>
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
-<script type="text/javascript" src="data.js"></script>
+    <script type="text/javascript" src="functions.js"></script>
+    <script
+      type="text/javascript"
+      src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"
+    ></script>
+    <script type="text/javascript" src="data.js"></script>
 
-<script type="text/javascript">
-var timer = 15;
+    <script type="text/javascript">
+      var timer = 15;
 
+      // Randomise Questions & Tips
+      q.sort(function () {
+        return 0.5 - Math.random();
+      });
+      tips.sort(function () {
+        return 0.5 - Math.random();
+      });
 
-// Randomise Questions & Tips
-q.sort(function() {return 0.5 - Math.random()})
-tips.sort(function() {return 0.5 - Math.random()})
+      // End Questions
+      q.push("done");
 
+      $(document).ready(function () {
+        next_q();
+        timer_tick();
+        display_tip();
+      });
+	  console.log("test");
+	  //function which gets called when user clicks button 
+      $(document).keypress(function (e) {
 
-// End Questions
-q.push('done');
+        switch (e.which) {
+		//this are key codes
+		//key code 13 means enter/return key
+          case 13:
+			//if press enter key and current displayed text is question display answer else if current displayed text is answer display next question
+			if ($("#question").is(":visible")) {
 
+				//log for testing
+				console.log("enter pressed");
+				//need to define display answer
+			  	display_answer();
+			} else if ($("#answer").is(":visible")) {
+			  next_q();
+			}
+            // Next Question - Return (13)
+            //next_q();
+            break;
 
-$(document).ready(function(){
-	next_q();
-	timer_tick();
-	display_tip();
-});
+		//key code 32 means space bar
+          case 32:
+            // Restart Timer - Space (32)
+            timer_restart();
+            break;
 
+			//key code 110 means n key (easter egg on n key)
+          case 110:
+            // Doesn't Do Anything, Move Along - funny easter egg:)
+            $("body").append(
+              '<div class="egg"><iframe width="420" height="315" src="http://www.youtube.com/embed/QH2-TGUlwu4?autoplay=1" frameborder="0" allowfullscreen></iframe></div>'
+            );
+            break;
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <!-- Message to be Displayed when out of questions -->
+    <div id="end" class="hide">
+      <h1>You have reached the end of questions</h1>
+      <h2>
+        Hopefully you will be a little more ready for your YC interview, good
+        luck! :)
+      </h2>
 
+      <p>
+        Why not check out <a href="http://goscale.com/">GoScale</a>, it&#39;s
+        cloud computing that scales in milliseconds.
+      </p>
+    </div>
 
-$(document).keypress(function(e) {
+    <!-- Question Display --->
+    <div id="question">&nbsp;</div>
 
-	switch (e.which)
-	{
-		case 13:
-			// Next Question - Return (13)
-			next_q();
-			break;
+    <!-- Timer -->
+    <div id="timer">Timer</div>
 
-		case 32:
-			// Restart Timer - Space (32)
-			timer_restart();
-			break;
+    <!-- Dissapointed Paul Graham -->
+	<!-- todo rather add funny devops meme -->
+    <div class="pg hide">
+      <img src="pg.jpg" width="400" height="300" />
+    </div>
 
-		case 110:
-			// Doesn't Do Anything, Move Along
-			$('body').append('<div class="egg"><iframe width="420" height="315" src="http://www.youtube.com/embed/QH2-TGUlwu4?autoplay=1" frameborder="0" allowfullscreen></iframe></div>');
-			break;
+    <!-- Tips Display -->
+    <div class="tip"><strong>ProTip:</strong> <span id="tip">&nbsp;</span></div>
 
-	}
-});
-</script>
+    <!-- Keyboard Control Reference -->
+    <div class="controls">
+      <h1>Key Controls</h1>
 
-</head>
-<body>
+      <div class="key key-space">space</div>
+      <div class="act">to restart timer</div>
 
-<!-- Message to be Displayed when out of questions -->
-<div id="end" class="hide">
-	<h1>You have reached the end of questions</h1>
-	<h2>Hopefully you will be a little more ready for your YC interview, good luck! :)</h2>
+      <div class="key key-return">return</div>
+      <div class="act">to next question</div>
+    </div>
 
-	<p>Why not check out <a href="http://goscale.com/">GoScale</a>, it&#39;s cloud computing that scales in milliseconds.</p>
-</div>
-
-
-<!-- Question Display --->
-<div id="question">
-	&nbsp;
-</div>
-
-
-<!-- Timer -->
-<div id="timer">
-	Timer
-</div>
-
-
-<!-- Dissapointed Paul Graham -->
-<div class="pg hide">
-	<img src="pg.jpg" width="400" height="300" />
-</div>
-
-
-<!-- Tips Display -->
-<div class="tip">
-	<strong>ProTip:</strong> <span id="tip">&nbsp;</span>
-</div>
-
-
-<!-- Keyboard Control Reference -->
-<div class="controls">
-	<h1>Key Controls</h1>
-
-	<div class="key key-space">space</div>
-	<div class="act">to restart timer</div>
-
-	<div class="key key-return">return</div>
-	<div class="act">to next question</div>
-</div>
-
-
-<!-- Footer -->
-<div class="footer">
-	Built by
-	<a href="https://github.com/yachty66">Max</a> and
-	<a href="https://github.com/uptimejan">Jan</a> for
-	<a href="https://www.uptime.build/">Uptime</a>
-</div>
-
-</body>
+    <!-- Footer -->
+    <div class="footer">
+      Built by
+      <a href="https://github.com/yachty66">Max</a> and
+      <a href="https://github.com/uptimejan">Jan</a> for
+      <a href="https://www.uptime.build/">Uptime</a>
+    </div>
+  </body>
 </html>
