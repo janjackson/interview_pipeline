@@ -69,7 +69,7 @@ function timer_restart() {
 
   timer = 120;
 
-  $("#timer").html("15 s");
+  $("#timer").html("120 s");
 }
 
 /* --- Tip Functions ---

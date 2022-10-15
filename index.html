@@ -13,7 +13,7 @@
     <script type="text/javascript" src="data.js"></script>
 
     <script type="text/javascript">
-      var timer = 15;
+      var timer = 120;
 
       // Randomise Questions & Tips
       q.sort(function () {
@@ -36,15 +36,15 @@
         switch (e.which) {
           //key code 13 means enter/return key
           case 13:
-            //if $("#end").removeClass("hide"); is not hide              
+            //if $("#end").removeClass("hide"); is not hide
             if ($("#answer").is(":empty") && $("#end").hasClass("hide")) {
-            var question = $("#question").html();
-            for (var i = 0; i < qa.length; i++) {
-              if (qa[i].q == question) {
-                answer = escapeToHtml(qa[i].a);
-                $("#answer").html(answer);
+              var question = $("#question").html();
+              for (var i = 0; i < qa.length; i++) {
+                if (qa[i].q == question) {
+                  answer = escapeToHtml(qa[i].a);
+                  $("#answer").html(answer);
+                }
               }
-            }
               //need to iter over all entries and check if entry.q == question
               //if yes add entry.a to
               //iter over dictionary qAnda and if key == contentOfQuestion
@@ -71,6 +71,20 @@
       });
     </script>
   </head>
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-NV12N74K8D"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-NV12N74K8D");
+  </script>
   <body>
     <!-- Message to be Displayed when out of questions -->
     <div id="end" class="hide">
@@ -126,5 +140,4 @@
       <a href="https://www.uptime.build/">Uptime</a>
     </div>
   </body>
-
 </html>
