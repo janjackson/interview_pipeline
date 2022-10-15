@@ -13,7 +13,7 @@ var qa = [
   },
   {
     q: "What are the main benefits of DevOps?",
-    a: "What are the main benefits of DevOps?\r\nDevOps is a very popular trend in Software Development. Some of the main benefits of DevOps are as follows:\r\nI. Release Velocity : DevOps practices help in increasing the release velocity. We can release code to production more often and with more confidence.\r\nII. Development Cycle : With DevOps, the complete Development cycle from initial design to production deployment becomes shorter.\r\nIII. Deployment Rollback : In DevOps, we plan for any failure in deployment rollback due to a bug in code or issue in production. This gives confidence in releasing feature without worrying about downtime for rollback.\r\nIV. Defect Detection : With DevOps approach, we can catch defects much earlier than releasing to production. It improves the quality of the software.\r\nV. Recovery from Failure : In case of a failure, we can recover very fast with DevOps process.\r\nVI. Collaboration : With DevOps, collaboration between development and operations professionals increases.\r\nVII. Performance-oriented : With DevOps, organization follows performance-oriented culture in which teams become more productive and more innovative.",
+    a: "DevOps is a very popular trend in Software Development. Some of the main benefits of DevOps are as follows:\r\nI. Release Velocity : DevOps practices help in increasing the release velocity. We can release code to production more often and with more confidence.\r\nII. Development Cycle : With DevOps, the complete Development cycle from initial design to production deployment becomes shorter.\r\nIII. Deployment Rollback : In DevOps, we plan for any failure in deployment rollback due to a bug in code or issue in production. This gives confidence in releasing feature without worrying about downtime for rollback.\r\nIV. Defect Detection : With DevOps approach, we can catch defects much earlier than releasing to production. It improves the quality of the software.\r\nV. Recovery from Failure : In case of a failure, we can recover very fast with DevOps process.\r\nVI. Collaboration : With DevOps, collaboration between development and operations professionals increases.\r\nVII. Performance-oriented : With DevOps, organization follows performance-oriented culture in which teams become more productive and more innovative.",
   },
   {
     q: "What is the typical DevOps workflow you use in your organization?",
@@ -25,13 +25,11 @@ function escapeToHtml(text) {
   return text.replaceAll("\r\n", "<br>");
 }
 
-//todo remove tips which are related to YC
+// list of all tips
 var tips = [
   "Try to have quick and concise answers.",
-  "Try to answer in 2 to 3 sentences.",
+  "Try to structure your answers",
   "Answer like you would in a conversation, this is not a presentation.",
-  "When talking to PG and the other YC partners, be substantive, and get straight to the point.",
+  "When talking to your interviewer, be substantive, and get straight to the point.",
   'DO NOT BEAT AROUND THE BUSH. Do not hem and haw. "Uhm"s and "uh"s don&#39;t lend an aura of intelligence.',
-  'Use precise and concise language. You aren&#39;t pitching a VC that will ask you what your "secret sauce" is.',
-  "He talks quickly, and so do the other YC partners. Try to match their tempo (as you should when talking to anyone).",
 ];
