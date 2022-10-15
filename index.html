@@ -1,118 +1,122 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<title>iPG</title>
-<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1" />
-<link rel="stylesheet" type="text/css" href="style.css" />
+  <head>
+    <title>iPG</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
 
-<script type="text/javascript" src="functions.js"></script>
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
-<script type="text/javascript" src="data.js"></script>
+    <script type="text/javascript" src="functions.js"></script>
+    <script
+      type="text/javascript"
+      src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"
+    ></script>
+    <script type="text/javascript" src="data.js"></script>
 
-<script type="text/javascript">
-var timer = 15;
-var displayA = false;
-var shiftOnce = true;
+    <script type="text/javascript">
+      var timer = 15;
 
-// Randomise Questions & Tips
-q2.sort(function() {return 0.5 - Math.random()})
-tips.sort(function() {return 0.5 - Math.random()})
+      // Randomise Questions & Tips
+      q.sort(function () {
+        return 0.5 - Math.random();
+      });
+      tips.sort(function () {
+        return 0.5 - Math.random();
+      });
 
+      // End Questions
+      q.push("done");
 
-// End Questions
-q2.push('done');
-
-
-$(document).ready(function(){
-	next_q();
-	timer_tick();
-	display_tip();
-});
-
-
-
-$(document).keypress(function(e) {
-
-	switch (e.which)
-	{
-		case 13:
-			// Next Question - Return (13)
-			next_q();
+      $(document).ready(function () {
+        next_q();
+        timer_tick();
+        display_tip();
+      });
+	  console.log("test");
+	  //function which gets called when user clicks button 
+      $(document).keypress(function (e) {
+        switch (e.which) {
+		//this are key codes
+		//key code 13 means enter/return key
+          case 13:
+			//if answer is not visible display answer
+			//if id = answer is not visible insert "hallo"
+			//check if div is empty
+			if ($('#answer').is(':empty')){
+				//needs to log empty when hitting enter
+				//if yes i can insert something in the html
+				console.log("empty")
+				$('#answer').html('yourtHTML');
+			}			
 			break;
 
-		case 32:
-			// Restart Timer - Space (32)
-			timer_restart();
-			break;
+		//key code 32 means space bar
+          case 32:
+            // Restart Timer - Space (32)
+            timer_restart();
+            break;
 
-		case 110:
-			// Doesn't Do Anything, Move Along
-			$('body').append('<div class="egg"><iframe width="420" height="315" src="http://www.youtube.com/embed/QH2-TGUlwu4?autoplay=1" frameborder="0" allowfullscreen></iframe></div>');
-			break;
+			//key code 110 means n key (easter egg on n key)
+          case 110:
+            // Doesn't Do Anything, Move Along - funny easter egg:)
+            $("body").append(
+              '<div class="egg"><iframe width="420" height="315" src="http://www.youtube.com/embed/QH2-TGUlwu4?autoplay=1" frameborder="0" allowfullscreen></iframe></div>'
+            );
+            break;
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <!-- Message to be Displayed when out of questions -->
+    <div id="end" class="hide">
+      <h1>You have reached the end of questions</h1>
+      <h2>
+        Hopefully you will be a little more ready for your YC interview, good
+        luck! :)
+      </h2>
 
-	}
-});
-</script>
+      <p>
+        Why not check out <a href="http://goscale.com/">GoScale</a>, it&#39;s
+        cloud computing that scales in milliseconds.
+      </p>
+    </div>
 
-</head>
-<body>
+    <!-- Question Display --->
+    <div id="question">&nbsp;</div>
 
-<!-- Message to be Displayed when out of questions -->
-<div id="end" class="hide">
-	<h1>You have reached the end of questions</h1>
-	<h2>Hopefully you will be a little more ready for your devops interview, good luck! :)</h2>
+	<!-- Answer Display --->
+    <div id="answer"></div>
 
-	<p>Why not check out <a href="http://uptime.build">Uptime Community</a>, a community of DevOps engineers to see other job opportunities.</p>
-</div>
+    <!-- Timer -->
+    <div id="timer">Timer</div>
 
+    <!-- Dissapointed Paul Graham -->
+	<!-- todo rather add funny devops meme -->
+    <div class="pg hide">
+      <img src="pg.jpg" width="400" height="300" />
+    </div>
 
-<!-- Question Display --->
-<div id="question">
-	&nbsp;
-</div>
+    <!-- Tips Display -->
+    <div class="tip"><strong>ProTip:</strong> <span id="tip">&nbsp;</span></div>
 
-<!-- Answer Display --->
-<div id="answer">
-	&nbsp;
-</div>
+    <!-- Keyboard Control Reference -->
+    <div class="controls">
+      <h1>Key Controls</h1>
 
-<!-- Timer -->
-<div id="timer">
-	Timer
-</div>
+      <div class="key key-space">space</div>
+      <div class="act">to restart timer</div>
 
+      <div class="key key-return">return</div>
+      <div class="act">to next question</div>
+    </div>
 
-<!-- Dissapointed Paul Graham -->
-<div class="pg hide">
-	<img src="pg.jpg" width="400" height="300" />
-</div>
+    <!-- Footer -->
+    <div class="footer">
+      Built by
+      <a href="https://github.com/yachty66">Max</a> and
+      <a href="https://github.com/uptimejan">Jan</a> for
+      <a href="https://www.uptime.build/">Uptime</a>
+    </div>
+  </body>
 
-
-<!-- Tips Display -->
-<div class="tip">
-	<strong>ProTip:</strong> <span id="tip">&nbsp;</span>
-</div>
-
-
-<!-- Keyboard Control Reference -->
-<div class="controls">
-	<h1>Key Controls</h1>
-
-	<div class="key key-space">space</div>
-	<div class="act">to restart timer</div>
-
-	<div class="key key-return">return</div>
-	<div class="act">to next question</div>
-</div>
-
-
-<!-- Footer -->
-<div class="footer">
-	Built by
-	<a href="https://github.com/yachty66">Max</a> and
-	<a href="https://github.com/uptimejan">Jan</a> for
-	<a href="https://www.uptime.build/">Uptime</a>
-</div>
-
-</body>
 </html>
