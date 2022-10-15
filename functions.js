@@ -31,7 +31,7 @@ function next_q() {
 /* --- Timer Functions ---
    -------------------------------------------------- */
 
-  function timer_tick() {
+function timer_tick() {
   //$ is call to jquery function to return a set of elements found in DOM
   $("#timer").removeClass("warning");
   //returns true if element has class warning
@@ -58,7 +58,6 @@ function next_q() {
   }
   //setTimeout means that timer_tick() is called after 1 second
   setTimeout("timer_tick();", 1000);
-
 }
 
 //function to restart timer
@@ -83,3 +82,4 @@ function display_tip() {
   $("#tip").html(tip);
 
   tips.push(tip);
+}
