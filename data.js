@@ -5,6 +5,8 @@ var q = [
   "What is the typical DevOps workflow you use in your organization?",
 ];
 
+var j = "Thats a test."
+
 // New questions with answers
 // use https://www.freeformatter.com/javascript-escape.html#before-output to translate from free text to js escape characters
 //array with questions and answers

@@ -34,24 +34,20 @@
 	  console.log("test");
 	  //function which gets called when user clicks button 
       $(document).keypress(function (e) {
-
         switch (e.which) {
 		//this are key codes
 		//key code 13 means enter/return key
           case 13:
-			//if press enter key and current displayed text is question display answer else if current displayed text is answer display next question
-			if ($("#question").is(":visible")) {
-
-				//log for testing
-				console.log("enter pressed");
-				//need to define display answer
-			  	display_answer();
-			} else if ($("#answer").is(":visible")) {
-			  next_q();
-			}
-            // Next Question - Return (13)
-            //next_q();
-            break;
+			//if answer is not visible display answer
+			//if id = answer is not visible insert "hallo"
+			//check if div is empty
+			if ($('#answer').is(':empty')){
+				//needs to log empty when hitting enter
+				//if yes i can insert something in the html
+				console.log("empty")
+				$('#answer').html('yourtHTML');
+			}			
+			break;
 
 		//key code 32 means space bar
           case 32:
@@ -87,6 +83,9 @@
 
     <!-- Question Display --->
     <div id="question">&nbsp;</div>
+
+	<!-- Answer Display --->
+    <div id="answer"></div>
 
     <!-- Timer -->
     <div id="timer">Timer</div>

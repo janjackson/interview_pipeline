@@ -29,22 +29,11 @@ function next_q() {
 }
 
 //function which searches based on the input value (which is a key) for an the value of the appropriate key and displays this value in the DOM
-function display_answer(key) {
-	$("#question").addClass("hide");
-	$("#timer").addClass("hide");
-	$(".pg").addClass("hide");
-
-	$("#end").removeClass("hide");
-	console.log("dispaly answer");
-	//for loop which iterates through the array q2
-	for (var i = 0; i < q2.length; i++) {
-		//if the key of the array q2 is equal to the input key
-		if (q2[i].id == key) {
-			//remove current value and display the value of the key in the DOM
-			$("#answer").html("");
-			$("#answer").html(q2[i].value);
-		}
-	}
+function next_a() {
+	//make answer visible
+	$("#answer").html("<h2>" + "dkdkdkddkdkkdkdk" + "</h2>");
+	console.log("next_a");
+	//this should work. now i only need to define what the answer is 
 }
 
 
@@ -87,7 +76,8 @@ function timer_restart() {
   $(".pg").addClass("hide");
   $("#timer").removeClass("hide");
 
-  timer = 15;
+  //todo set timer to 120 sek 
+  timer = 1000;
 
   $("#timer").html("15 s");
 }
