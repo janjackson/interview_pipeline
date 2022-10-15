@@ -11,15 +11,16 @@
 
 <script type="text/javascript">
 var timer = 15;
-
+var displayA = false;
+var shiftOnce = true;
 
 // Randomise Questions & Tips
-q.sort(function() {return 0.5 - Math.random()})
+q2.sort(function() {return 0.5 - Math.random()})
 tips.sort(function() {return 0.5 - Math.random()})
 
 
 // End Questions
-q.push('done');
+q2.push('done');
 
 
 $(document).ready(function(){
@@ -59,9 +60,9 @@ $(document).keypress(function(e) {
 <!-- Message to be Displayed when out of questions -->
 <div id="end" class="hide">
 	<h1>You have reached the end of questions</h1>
-	<h2>Hopefully you will be a little more ready for your YC interview, good luck! :)</h2>
+	<h2>Hopefully you will be a little more ready for your devops interview, good luck! :)</h2>
 
-	<p>Why not check out <a href="http://goscale.com/">GoScale</a>, it&#39;s cloud computing that scales in milliseconds.</p>
+	<p>Why not check out <a href="http://uptime.build">Uptime Community</a>, a community of DevOps engineers to see other job opportunities.</p>
 </div>
 
 
@@ -70,6 +71,10 @@ $(document).keypress(function(e) {
 	&nbsp;
 </div>
 
+<!-- Answer Display --->
+<div id="answer">
+	&nbsp;
+</div>
 
 <!-- Timer -->
 <div id="timer">
