@@ -28,15 +28,6 @@ function next_q() {
   }
 }
 
-//function which searches based on the input value (which is a key) for an the value of the appropriate key and displays this value in the DOM
-function next_a() {
-	//make answer visible
-	$("#answer").html("<h2>" + "dkdkdkddkdkkdkdk" + "</h2>");
-	console.log("next_a");
-	//this should work. now i only need to define what the answer is 
-}
-
-
 /* --- Timer Functions ---
    -------------------------------------------------- */
 
@@ -70,15 +61,14 @@ function next_a() {
 
 }
 
-//function to restart timer 
+//function to restart timer
 function timer_restart() {
   $("#timer").removeClass("warning");
   $("#timer").removeClass("fail");
   $(".pg").addClass("hide");
   $("#timer").removeClass("hide");
 
-  //todo set timer to 120 sek 
-  timer = 1000;
+  timer = 120;
 
   $("#timer").html("15 s");
 }

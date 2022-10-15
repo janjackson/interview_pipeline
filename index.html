@@ -31,31 +31,36 @@
         timer_tick();
         display_tip();
       });
-	  console.log("test");
-	  //function which gets called when user clicks button 
+      //function which gets called when user clicks button
       $(document).keypress(function (e) {
         switch (e.which) {
-		//this are key codes
-		//key code 13 means enter/return key
+          //key code 13 means enter/return key
           case 13:
-			//if answer is not visible display answer
-			//if id = answer is not visible insert "hallo"
-			//check if div is empty
-			if ($('#answer').is(':empty')){
-				//needs to log empty when hitting enter
-				//if yes i can insert something in the html
-				console.log("empty")
-				$('#answer').html('yourtHTML');
-			}			
-			break;
-
-		//key code 32 means space bar
+            //if $("#end").removeClass("hide"); is not hide              
+            if ($("#answer").is(":empty") && $("#end").hasClass("hide")) {
+            var question = $("#question").html();
+            for (var i = 0; i < qa.length; i++) {
+              if (qa[i].q == question) {
+                answer = escapeToHtml(qa[i].a);
+                $("#answer").html(answer);
+              }
+            }
+              //need to iter over all entries and check if entry.q == question
+              //if yes add entry.a to
+              //iter over dictionary qAnda and if key == contentOfQuestion
+            } else {
+              $("#answer").empty();
+              //and display next question
+              next_q();
+            }
+            break;
+          //key code 32 means space bar
           case 32:
             // Restart Timer - Space (32)
             timer_restart();
             break;
 
-			//key code 110 means n key (easter egg on n key)
+          //key code 110 means n key (easter egg on n key)
           case 110:
             // Doesn't Do Anything, Move Along - funny easter egg:)
             $("body").append(
@@ -71,27 +76,30 @@
     <div id="end" class="hide">
       <h1>You have reached the end of questions</h1>
       <h2>
-        Hopefully you will be a little more ready for your YC interview, good
-        luck! :)
+        Hopefully you will be a little more ready for your DevOps interview,
+        good luck! :)
       </h2>
-
       <p>
-        Why not check out <a href="http://goscale.com/">GoScale</a>, it&#39;s
-        cloud computing that scales in milliseconds.
+        Why not check out <a href="https://www.uptime.build/">Uptime</a>,
+        it&#39;s a community aorund DevOps.
       </p>
     </div>
 
     <!-- Question Display --->
     <div id="question">&nbsp;</div>
 
-	<!-- Answer Display --->
-    <div id="answer"></div>
+    <!-- Answer Display --->
+    <!-- add a container --->
+    <!-- I want a container which takes 20% of size and is setting everything relative to this container-->
+    <div id="container">
+      <div id="answer"></div>
+    </div>
 
     <!-- Timer -->
     <div id="timer">Timer</div>
 
     <!-- Dissapointed Paul Graham -->
-	<!-- todo rather add funny devops meme -->
+    <!-- todo rather add funny devops meme -->
     <div class="pg hide">
       <img src="pg.jpg" width="400" height="300" />
     </div>
