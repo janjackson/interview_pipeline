@@ -75,10 +75,10 @@ function timer_restart() {
   $(".pg").addClass("hide");
   $("#timer").removeClass("hide");
 
-  //todo set timer to 120 sek
-  timer = 1000;
+  //todo set timer to 120 sec
+  timer = 120;
 
-  $("#timer").html("15 s");
+  $("#timer").html("120 s");
 }
 
 /* --- Tip Functions ---
