@@ -12,6 +12,17 @@ var q = [
   "What are the benefits of Continuous Integration (CI)?",
   "What are the options for security in Jenkins?",
   "What are the main benefits of Chef?",
+  "What is the architecture of Chef?",
+  "What is a Recipe in Chef?",
+  "What are the main benefits of Ansible?",
+  "What are the main use cases of Ansible?",
+  "What is Docker Hub?",
+  "What is your favorite scripting language for DevOps?",
+  "What is Multi-factor authentication?",
+  "What are the main benefits of Nagios?",
+  "What is State Stalking in Nagios?",
+  "What are the main features of Nagios?",
+  "What is Puppet?",
 ];
 
 // use https://www.freeformatter.com/javascript-escape.html#before-output to translate from free text to js escape characters
@@ -65,6 +76,56 @@ var qa = [
     q: "What are the main benefits of Chef?",
     a: "Chef is an automation tool for keeping infrastructure as code. It has many benefits. Some of these are as follows:\r\n\r\nI. Cloud Deployment : We can use Chef to perform automated deployment in Cloud environment.\r\n\r\nII. Multi-cloud support : With Chef we can even use multiple cloud providers for our infrastructure.\r\n\r\nIII. Hybrid Deployment : Chef supports both Cloud based as well as datacenter-based infrastructure.\r\n\r\nIV. High Availability : With Chef automation, we can create high availability environment. In case of hardware\r\nfailure, Chef can maintain or start new servers in automated way to maintain highly available environment.",
   },
+  {
+    q: "What is the architecture of Chef?",
+    a: "Chef is composed of many components like Chef Server, Client etc. Some of the main components in Chef are as follows:\r\n\r\nI. Client : These are the nodes or individual users that communicate with Chef server.\r\n\r\nII. Chef Manage : This is the web console that is used for interacting with Chef Server.\r\n\r\nIII. Load Balancer : All the Chef server API requests are routed through Load Balancer. It is implemented in Nginx.\r\n\r\nIV. Bookshelf : This is the component that stores cookbooks. All the cookbooks are stored in a repository. It is separate storage from the Chef server.\r\n\r\nV. PostgreSQL : This is the data repository for Chef server.\r\n\r\nVI. Chef Server : This is the hub for configuration data. All the cookbooks and policies are stored in it. It can scale to the size of any enterprise.",
+  },
+  {
+    q: "What is a Recipe in Chef?",
+    a: "In any organization, Recipe is the most fundamental configuration element. It is written in Ruby language. It is a collection of resources defined by using patterns.\r\n\r\nA Recipe is stored in a Cookbook and it may have dependency on other Recipe. We can tag Recipe to create some kind of grouping.\r\n\r\nWe have to add a Recipe in run-list before using it by chef-client.\r\n\r\nIt always maintains the execution order specified in run-list.",
+  },
+  {
+    q: "What are the main benefits of Ansible?",
+    a: "Ansible is a powerful tool for IT Automation for large scale and complex deployments. It increases the productivity of team.\r\n\r\nSome of the main benefits of Ansible are as follows:\r\nI. Productivity : It helps in delivering and deploying with speed. It increases productivity in an organization.\r\n\r\nII. Automation : Ansible provides very good options for automation. With automation, people can focus on delivering smart solutions.\r\n\r\nIII. Large-scale : Ansible can be used in small as well as very large-scale organizations.\r\n\r\nIV. Simple DevOps : With Ansible, we can write automation in a human-readable language. This simplifies the task of DevOps.\r\n",
+  },
+  {
+    q: "What are the main use cases of Ansible?",
+    a: "Some of the popular use cases of Ansible are as follows:\r\nI. App Deployment : With Ansible, we can deploy apps in a reliable and repeatable way.\r\n17.\r\n\r\nII. Configuration Management : Ansible supports the automation of configuration management across multiple environments.\r\n\r\nIII. Continuous Delivery : We can release updates with zero downtime with Ansible.\r\n\r\nIV. Security : We can implement complex security policies with Ansible.\r\n\r\nV. Compliance : Ansible helps in verifying and organization\u2019s systems in comparison with the rules and regulations.\r\n\r\nVI. Provisioning : We can provide new systems and resources to other users with Ansible.\r\n\r\nVII. Orchestration : Ansible can be used in orchestration of complex deployment in a simple way.",
+  },
+  {
+    q: "What is Docker Hub?",
+    a: "Docker Hub is a cloud-based registry. We can use Docker Hub to link code repositories. We can even build images and store them in Docker Hub. It also provides links to Docker Cloud to deploy the images to our hosts.\r\n\r\nDocker Hub is a central repository for container image discovery, distribution, change management, workflow automation and team collaboration.",
+  },
+  {
+    q: "What is your favorite scripting language for DevOps?",
+    a: "In DevOps, we use different scripting languages for different purposes. There is no single language that can work in all the scenarios. Some of the popular scripting languages that we use are as follows:\r\n\r\nI. Bash : On Unix based systems we use Bash shell scripting for automating tasks.\r\n\r\nII. Python : For complicated programming and large modules we use Python. We can easily use a wide variety of standard libraries with Python.\r\n\r\nIII. Groovy : This is a Java based scripting language. We need JVM installed in an environment to use Groovy. It is very powerful and it provides very powerful features.\r\n\r\nIV. Perl : This is another language that is very useful for text parsing. We use it in web applications.",
+  },
+  {
+    q: "What is Multi-factor authentication?",
+    a: "In security implementation, we use Multi-factor authentication (MFA). In MFA, a user is authenticated by multiple means before giving access to a resource or service. It is different from simple user/password based authentication.\r\n\r\nThe most popular implementation of MFA is Two-factor authentication. In most of the organizations, we use username/password and an RSA token as two factors for authentication.\r\n\r\nWith MFA, the system becomes more secure and it cannot be easily hacked.",
+  },
+  {
+    q: "What are the main benefits of Nagios?",
+    a: "Nagios is open source software to monitor systems, networks and infrastructure. The main benefits of Nagios are as follows:\r\n\r\nI. Monitor : DevOps can configure Nagios to monitor IT infrastructure components, system metrics and network protocols.\r\n\r\nII. Alert : Nagios will send alerts when a critical component in infrastructure fails.\r\n\r\nIII. Response : DevOps acknowledges alerts and takes corrective actions.\r\n\r\nIV. Report : Periodically Nagios can publish/send reports on outages, events and SLAs etc.\r\n\r\nV. Maintenance: During maintenance windows, we can also disable alerts.\r\n\r\nVI. Planning : Based on past data, Nagios helps in infrastructure planning and upgrades.",
+  },
+  {
+    q: "What is State Stalking in Nagios?",
+    a: "State Stalking is a very useful feature. Though all the users do not use it all the time, it is very helpful when we want to investigate an issue.\r\n\r\nIn State Stalking, we can enable stalking on a host. Nagios will monitor the state of the host very carefully and it will log any changes in the state.\r\n\r\nBy this we can identify what changes might be causing an issue on the host.",
+  },
+  {
+    q: "What are the main features of Nagios?",
+    a: "Some of the main features of Nagios are as follows:\r\n\r\nI. Visibility : Nagios provides a centralized view of the entire IT infrastructure.\r\n\r\nII. Monitoring : We can monitor all the mission critical infrastructure components with Nagios.\r\n\r\nIII. Proactive Planning : With Capacity Planning and Trending we can proactively plan to scale up or scale down the infrastructure.\r\n\r\nIV. Extendable : Nagios is extendable to a third party tools in APIs.\r\n\r\nV. Multi-tenant : Nagios supports multi-tenants architecture.",
+  },
+  {
+    q: "What is Puppet?",
+    a: "Puppet Enterprise is a DevOps software platform that is used for automation of infrastructure operations. It runs on Unix as well as on Windows.\r\n\r\nWe can define system configuration by using Puppet\u2019s language or Ruby DSL.\r\n\r\nThe system configuration described in Puppet\u2019s language can be distributed to a target system by using REST API calls.",
+  },
+  /* empty for extending
+  {
+    q: "",
+    a: "",
+  },
+  */
 ];
 
 function escapeToHtml(text) {
